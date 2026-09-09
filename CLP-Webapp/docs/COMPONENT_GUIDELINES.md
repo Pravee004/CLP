@@ -74,3 +74,32 @@ Whenever a new landing page section is requested:
   when they are not reused elsewhere.
 - Types reused across multiple components belong in `src/types/`.
 - Never redefine the same interface in more than one file.
+
+## Exports
+
+- Components use a **default export**, one component per file.
+- Hooks, utilities, constants and types use **named exports**.
+- `icons.tsx` is the one exception: it holds several tiny named icon
+  components.
+
+## What already exists — check here first
+
+Reuse these before writing anything new:
+
+| Component | Location | Notes |
+|------------|-----------|-------|
+| `Button` | `shared/components/ui/Button.tsx` | `primary` / `secondary` / `ghost`, sizes `sm`/`md`/`lg`. Renders an `<a>` when given `href`. Add a variant here rather than styling a new button. |
+| `Container` | `shared/components/ui/Container.tsx` | Page width + gutters. |
+| `SectionHeading` | `shared/components/ui/SectionHeading.tsx` | Eyebrow + heading + description. `size="hero"` or `"section"`, `align`, `as`. Every section heading should use this. |
+| `icons` | `shared/components/ui/icons.tsx` | `ArrowRightIcon`, `ChevronDownIcon`. |
+| `Logo` | `shared/components/common/Logo.tsx` | Mark + wordmark; `showWordmark={false}` for the mark alone. |
+| `Header` | `shared/components/layout/Header.tsx` | Fixed site header, glass-on-scroll. |
+| `useScrollProgress` | `shared/hooks/useScrollProgress.ts` | 0→1 progress of a tall element through the viewport, rAF-throttled. |
+| `useScrolled` | `shared/hooks/useScrolled.ts` | Boolean past a scroll threshold. |
+| `cn` | `shared/utils/cn.ts` | Conditional class joining. |
+| `clamp`, `mapRange` | `shared/utils/math.ts` | Numeric helpers for animation math. |
+
+No shared `Card` exists yet — the hero's dashboard preview uses a local
+panel because its styling is specific to that mock. Create
+`shared/components/ui/Card.tsx` when a second, genuinely shared card
+appears.

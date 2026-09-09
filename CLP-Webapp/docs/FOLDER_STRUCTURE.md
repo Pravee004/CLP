@@ -8,6 +8,11 @@ where. It is a permanent reference — consult it before creating any new file.
 ```
 CLP-Webapp/
 ├── public/
+│   ├── landing/
+│   │   └── hero/            # Supplied hero artwork, served from /landing/hero/
+│   │       ├── hero-background.png
+│   │       └── hero-monster.png
+│   │
 │   ├── images/
 │   │   ├── brand/           # Logo, brand marks, favicons-in-waiting
 │   │   ├── landing/         # Images unique to the landing page

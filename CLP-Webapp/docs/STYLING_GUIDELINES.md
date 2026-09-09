@@ -60,6 +60,24 @@ styles here — it is a token registry, not a stylesheet for specific UI.
 When the CLP brand (colors, type, etc.) is finalized, update the token
 values in this file rather than hardcoding raw hex/px values in components.
 
+## Design tokens in use
+
+Defined in `design-system.css`, available as Tailwind utilities:
+
+- **Brand** — `brand-primary` `#2563B8`, `brand-dark` `#163B70`
+- **Accents** — `accent-green` `#2F6B57`, `accent-gold` `#F4B942`,
+  `accent-coral` `#E9786A`
+- **Surfaces** — `page` `#F4F8FC`, `surface` `#FFFFFF`, `surface-muted`
+  `#F8FAFC`, `line` `#E2EAF2`
+- **Text** — `ink` `#16324F`, `body` `#425466`, `muted` `#718096`
+- **Radius** — `rounded-card`, `rounded-window`, `rounded-pill`
+- **Shadows** — `shadow-soft`, `shadow-card`, `shadow-cta`, `shadow-window`
+- **Fonts** — `font-display` (Plus Jakarta Sans), `font-sans` (Inter)
+- **Width** — `max-w-page` (1200px, via `Container`)
+
+Use these names instead of raw hex values. Raw hex is acceptable only
+inside illustration SVGs, where fills are artwork rather than UI.
+
 ## Component-specific CSS
 
 Tailwind should be preferred for component styling. If a component
@@ -68,6 +86,18 @@ genuinely needs custom CSS Tailwind can't reasonably express:
 - Place the CSS file **next to** the component.
 - Name it after the component: `HeroSection.tsx` → `HeroSection.css`.
 - Do not put component-specific CSS into `src/styles/`.
+
+The one file that currently qualifies is
+`components/landing/hero/HeroSection.css`: the hero's scroll choreography
+is a set of interdependent transforms driven by a single custom property
+(`--hero-p`), which Tailwind utilities can't express. All of that hero's
+static styling still lives in Tailwind classes in the TSX.
+
+## Scroll-linked animation
+
+When animating on scroll, write the progress value to a CSS custom
+property via a ref and let CSS do the work — do not drive per-frame
+animation through React state. `useScrollProgress` is built for this.
 
 ## Summary of file responsibilities
 

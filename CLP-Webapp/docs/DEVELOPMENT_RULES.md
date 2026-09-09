@@ -73,10 +73,18 @@ section", "Create a Testimonials section"):
 
 ## Assets
 
-- Landing images live under `public/images/<category>/` (never a flat
-  single folder) — see `FOLDER_STRUCTURE.md` for categories.
+- Supplied section artwork lives under `public/landing/<section>/` — the
+  hero's three images are at `public/landing/hero/`.
+- Other landing images live under `public/images/<category>/` (never a
+  flat single folder) — see `FOLDER_STRUCTURE.md` for categories.
+- Reference public assets with root-relative paths (`/landing/hero/...`),
+  never `../../public/...`.
 - Use `kebab-case` filenames.
 - Never duplicate the same asset across multiple folders.
+- Check an asset's real dimensions and alpha channel before treating it as
+  a cut-out. Only a PNG with an alpha channel can be layered over the
+  background directly; a fully opaque image will render as a rectangle and
+  needs a masked crop instead.
 
 ## Email templates
 
