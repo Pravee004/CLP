@@ -1,0 +1,49 @@
+/**
+ * design-system.css
+ * ------------------------------------------------------------------
+ * Design-system-level tokens (Tailwind v4 CSS-first theme).
+ *
+ * This file is the single source of truth for brand-level design
+ * tokens — colors, typography, spacing, radius, shadows — that are
+ * consumed as Tailwind utilities (e.g. `bg-brand-primary`,
+ * `rounded-card`, `shadow-soft`) throughout the app.
+ *
+ * Rules:
+ * - Only shared, design-system-level tokens belong here.
+ * - Do NOT add one-off component styles to this file.
+ * - Page-specific or component-specific styling does NOT belong here
+ *   (see COMPONENT-SPECIFIC CSS RULES in docs/STYLING_GUIDELINES.md).
+ * - Prefer extending this file over writing raw hex/px values inline.
+ */
+
+@theme {
+  /* ---- Brand colors (placeholder values — update once brand is defined) ---- */
+  --color-brand-primary: #2563eb;
+  --color-brand-secondary: #f59e0b;
+  --color-brand-accent: #22c55e;
+
+  /* ---- Neutral surface colors ---- */
+  --color-surface: #ffffff;
+  --color-surface-muted: #f8fafc;
+  --color-surface-inverted: #0f172a;
+
+  /* ---- Text colors ---- */
+  --color-text-primary: #0f172a;
+  --color-text-secondary: #475569;
+  --color-text-inverted: #f8fafc;
+
+  /* ---- Typography ---- */
+  --font-sans: 'Inter', ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --font-display: 'Inter', ui-sans-serif, system-ui, -apple-system, sans-serif;
+
+  /* ---- Radius ---- */
+  --radius-card: 1rem;
+  --radius-pill: 999px;
+
+  /* ---- Shadows ---- */
+  --shadow-soft: 0 4px 20px -4px rgb(15 23 42 / 0.08);
+  --shadow-card: 0 8px 30px -8px rgb(15 23 42 / 0.12);
+
+  /* ---- Layout ---- */
+  --container-page: 1280px;
+}

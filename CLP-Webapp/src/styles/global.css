@@ -1,0 +1,55 @@
+/**
+ * global.css
+ * ------------------------------------------------------------------
+ * Application-wide styles ONLY. This file must stay minimal.
+ *
+ * Belongs here:
+ * - Tailwind + design-system token import
+ * - CSS reset / base element styles
+ * - Global body/typography defaults
+ * - Global animation keyframes shared across features
+ *
+ * Does NOT belong here:
+ * - Page-specific styles
+ * - Component-specific styles (co-locate a `Component.css` next to
+ *   the component instead — see docs/STYLING_GUIDELINES.md)
+ */
+
+@import 'tailwindcss';
+@import './design-system.css';
+
+/* ---- Base reset ---- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: var(--font-sans);
+  color: var(--color-text-primary);
+  background-color: var(--color-surface);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+button {
+  font-family: inherit;
+}
