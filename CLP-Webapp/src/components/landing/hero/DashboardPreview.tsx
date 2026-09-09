@@ -39,13 +39,6 @@ const COURSES = [
     tone: 'from-[#3E9C7C] to-[#2F6B57]',
     resume: false,
   },
-  {
-    title: 'Reading Comprehension',
-    meta: 'Lesson 5 of 10 · English',
-    progress: 51,
-    tone: 'from-[#F0997F] to-[#E9786A]',
-    resume: false,
-  },
 ]
 
 const WEEK = [
