@@ -1,5 +1,6 @@
 import HeroSection from '@/components/landing/hero/HeroSection'
 import ImpactSection from '@/components/landing/sections/ImpactSection'
+import LearningGrowsSection from '@/components/landing/sections/LearningGrowsSection'
 import ProgramsSection from '@/components/landing/sections/ProgramsSection'
 import ProgressReportsSection from '@/components/landing/sections/ProgressReportsSection'
 import Header from '@/shared/components/layout/Header'
@@ -19,6 +20,7 @@ function Home() {
         <HeroSection />
         <ImpactSection />
         <ProgramsSection />
+        <LearningGrowsSection />
         <ProgressReportsSection />
       </main>
     </>
