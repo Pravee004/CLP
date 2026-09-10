@@ -9,7 +9,7 @@ import { useEffect, useRef } from 'react'
  * arbitrary container.
  */
 
-const VIDEO_SRC = '/landing/hero/hero-video.mp4'
+const VIDEO_SRC = '/images/landing/hero/hero-video.mp4'
 
 function HeroVideoWindow() {
   const videoRef = useRef<HTMLVideoElement>(null)

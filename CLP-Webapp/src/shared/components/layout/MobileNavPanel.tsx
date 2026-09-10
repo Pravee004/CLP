@@ -24,7 +24,7 @@ function MobileNavPanel({ onNavigate }: MobileNavPanelProps) {
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: -8 }}
       transition={{ duration: 0.18, ease: 'easeOut' }}
-      className="absolute inset-x-0 top-full max-h-[calc(100vh-5rem)] overflow-y-auto rounded-b-2xl border-b border-line/70 bg-surface shadow-card"
+      className="absolute inset-x-0 top-full max-h-[calc(100vh-4rem)] overflow-y-auto rounded-b-2xl border-b border-line/70 bg-surface shadow-card"
     >
       <Container>
         <nav aria-label="Primary" className="flex flex-col gap-1 py-6">

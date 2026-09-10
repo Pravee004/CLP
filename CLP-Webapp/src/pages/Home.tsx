@@ -1,4 +1,7 @@
 import HeroSection from '@/components/landing/hero/HeroSection'
+import ImpactSection from '@/components/landing/sections/ImpactSection'
+import ProgramsSection from '@/components/landing/sections/ProgramsSection'
+import ProgressReportsSection from '@/components/landing/sections/ProgressReportsSection'
 import Header from '@/shared/components/layout/Header'
 
 /**
@@ -14,6 +17,9 @@ function Home() {
       <Header />
       <main>
         <HeroSection />
+        <ImpactSection />
+        <ProgramsSection />
+        <ProgressReportsSection />
       </main>
     </>
   )

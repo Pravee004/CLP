@@ -6,9 +6,8 @@
  * class so they parallax independently against scroll. The movement amounts
  * and the monster's idle drift live in HeroSection.css.
  */
-
-const BACKGROUND_SRC = '/landing/hero/hero-background.png'
-const MONSTER_SRC = '/landing/hero/hero-monster.png'
+const BACKGROUND_SRC = '/images/landing/hero/hero-background.png'
+const MONSTER_SRC = '/images/landing/hero/hero-monster.png'
 
 function HeroScene() {
   return (

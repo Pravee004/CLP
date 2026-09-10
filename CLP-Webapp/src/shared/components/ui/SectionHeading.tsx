@@ -1,8 +1,10 @@
 import type { ReactNode } from 'react'
+import Badge from '@/shared/components/ui/Badge'
 import { cn } from '@/shared/utils/cn'
 
 export type HeadingSize = 'hero' | 'section'
 export type HeadingAlign = 'left' | 'center'
+export type HeadingTone = 'onLight' | 'onDark'
 
 interface SectionHeadingProps {
   title: ReactNode
@@ -13,6 +15,8 @@ interface SectionHeadingProps {
   /** Renders the title as an `h1` for the page's primary heading. */
   as?: 'h1' | 'h2'
   className?: string
+  /** Swaps the text colours for use on a dark background. */
+  tone?: HeadingTone
   /** Constrain or restyle the title itself, e.g. to control where it wraps. */
   titleClassName?: string
 }
@@ -20,6 +24,19 @@ interface SectionHeadingProps {
 const TITLE_SIZE_CLASSES: Record<HeadingSize, string> = {
   hero: 'text-[clamp(2.75rem,6.4vw,6.5rem)] leading-[1.02] tracking-[-0.035em]',
   section: 'text-[clamp(2rem,3.6vw,3rem)] leading-[1.1] tracking-[-0.025em]',
+}
+
+/* Selected rather than appended: a `text-white` passed through
+   `titleClassName` would collide with a hardcoded `text-brand-dark` at equal
+   specificity, and stylesheet order — not the class string — would decide. */
+const TITLE_TONE_CLASSES: Record<HeadingTone, string> = {
+  onLight: 'text-brand-dark',
+  onDark: 'text-white',
+}
+
+const DESCRIPTION_TONE_CLASSES: Record<HeadingTone, string> = {
+  onLight: 'text-body',
+  onDark: 'text-white/70',
 }
 
 const DESCRIPTION_SIZE_CLASSES: Record<HeadingSize, string> = {
@@ -40,6 +57,7 @@ function SectionHeading({
   align = 'center',
   as = 'h2',
   className,
+  tone = 'onLight',
   titleClassName,
 }: SectionHeadingProps) {
   const centered = align === 'center'
@@ -47,16 +65,12 @@ function SectionHeading({
 
   return (
     <div className={cn('flex flex-col', centered ? 'items-center text-center' : 'items-start', className)}>
-      {eyebrow && (
-        <span className="inline-flex items-center gap-2 rounded-pill bg-surface/70 px-4 py-1.5 text-[0.7rem] font-semibold tracking-[0.18em] text-brand-primary uppercase shadow-soft ring-1 ring-white/80 backdrop-blur-md">
-          <span className="size-1.5 rounded-full bg-accent-gold" />
-          {eyebrow}
-        </span>
-      )}
+      {eyebrow && <Badge>{eyebrow}</Badge>}
 
       <Title
         className={cn(
-          'font-display font-extrabold text-balance text-brand-dark',
+          'font-display font-extrabold text-balance',
+          TITLE_TONE_CLASSES[tone],
           eyebrow && 'mt-6',
           TITLE_SIZE_CLASSES[size],
           titleClassName,
@@ -68,7 +82,8 @@ function SectionHeading({
       {description && (
         <p
           className={cn(
-            'max-w-2xl leading-relaxed text-pretty text-body',
+            'max-w-2xl leading-relaxed text-pretty',
+            DESCRIPTION_TONE_CLASSES[tone],
             DESCRIPTION_SIZE_CLASSES[size],
           )}
         >

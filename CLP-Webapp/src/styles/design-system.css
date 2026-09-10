@@ -25,6 +25,12 @@
   --color-accent-green: #2f6b57;
   --color-accent-gold: #f4b942;
   --color-accent-coral: #e9786a;
+  /* Matches the violet in personalized-learning.png so the programs card and
+     its illustration read as one piece. */
+  --color-accent-violet: #7a5af0;
+  /* Light tint that pairs with accent-green; accent-green itself is too dark
+     to sit behind an icon. */
+  --color-accent-mint: #b6ead8;
 
   /* ---- Surfaces ---- */
   --color-page: #f4f8fc;
@@ -54,5 +60,8 @@
     0 40px 90px -30px rgb(22 59 112 / 0.38), 0 8px 24px -14px rgb(22 59 112 / 0.22);
 
   /* ---- Layout ---- */
-  --container-page: 1200px;
+  /* High enough that the 100px desktop gutter — not this cap — sets the side
+     spacing at every common desktop width up to 1920. Beyond that the cap
+     takes over so the content doesn't stretch across an ultrawide display. */
+  --container-page: 1920px;
 }

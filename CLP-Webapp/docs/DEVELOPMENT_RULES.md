@@ -73,12 +73,15 @@ section", "Create a Testimonials section"):
 
 ## Assets
 
-- Supplied section artwork lives under `public/landing/<section>/` — the
-  hero's three images are at `public/landing/hero/`.
-- Other landing images live under `public/images/<category>/` (never a
-  flat single folder) — see `FOLDER_STRUCTURE.md` for categories.
-- Reference public assets with root-relative paths (`/landing/hero/...`),
-  never `../../public/...`.
+- Supplied section artwork lives under `public/images/landing/<section>/`
+  — e.g. `public/images/landing/hero/`, `public/images/landing/impact/`.
+- Other images live under `public/images/<category>/` (never a flat
+  single folder) — see `FOLDER_STRUCTURE.md` for categories.
+- Reference public assets with a **leading slash**
+  (`/images/landing/hero/...`), never `../../public/...` and never a bare
+  relative path like `images/landing/...`. A relative path resolves
+  against the current URL, so it happens to work at `/` and 404s on any
+  sub-route.
 - Use `kebab-case` filenames.
 - Never duplicate the same asset across multiple folders.
 - Check an asset's real dimensions and alpha channel before treating it as

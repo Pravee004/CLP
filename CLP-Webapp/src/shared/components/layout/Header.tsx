@@ -69,7 +69,7 @@ function Header() {
     >
       <Container>
         {/* equal 1fr side columns keep the centre nav aligned to the page axis */}
-        <div className="grid h-20 grid-cols-[1fr_auto_1fr] items-center gap-6">
+        <div className="grid h-16 grid-cols-[1fr_auto_1fr] items-center gap-6">
           <a
             href="#home"
             className="justify-self-start rounded-pill outline-none focus-visible:ring-2 focus-visible:ring-brand-primary/60"
@@ -127,7 +127,7 @@ function Header() {
               <Button
                 href="#get-started"
                 size="sm"
-                className="sm:h-11 sm:px-6"
+                className="sm:h-10 sm:px-5"
                 onClick={scheduleCloseMega}
               >
                 Get Started
