@@ -1,5 +1,6 @@
 import HeroSection from '@/components/landing/hero/HeroSection'
 import ImpactSection from '@/components/landing/sections/ImpactSection'
+import DownloadAppSection from '@/components/landing/sections/DownloadAppSection'
 import LearningGrowsSection from '@/components/landing/sections/LearningGrowsSection'
 import ProgramsSection from '@/components/landing/sections/ProgramsSection'
 import ProgressReportsSection from '@/components/landing/sections/ProgressReportsSection'
@@ -22,6 +23,8 @@ function Home() {
         <ProgramsSection />
         <LearningGrowsSection />
         <ProgressReportsSection />
+        <DownloadAppSection />
+
       </main>
     </>
   )

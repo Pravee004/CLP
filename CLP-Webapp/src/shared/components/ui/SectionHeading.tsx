@@ -65,7 +65,7 @@ function SectionHeading({
 
   return (
     <div className={cn('flex flex-col', centered ? 'items-center text-center' : 'items-start', className)}>
-      {eyebrow && <Badge>{eyebrow}</Badge>}
+      {eyebrow && <Badge tone={tone}>{eyebrow}</Badge>}
 
       <Title
         className={cn(
