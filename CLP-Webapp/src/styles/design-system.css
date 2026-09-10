@@ -37,6 +37,9 @@
   --color-surface: #ffffff;
   --color-surface-muted: #f8fafc;
   --color-line: #e2eaf2;
+  /* One step darker than --color-line, for hairlines that must stay visible
+     against a tinted card rather than a white one. */
+  --color-line-strong: #c9d8e8;
 
   /* ---- Text ---- */
   --color-ink: #16324f;

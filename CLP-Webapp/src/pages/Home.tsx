@@ -4,6 +4,7 @@ import DownloadAppSection from '@/components/landing/sections/DownloadAppSection
 import LearningGrowsSection from '@/components/landing/sections/LearningGrowsSection'
 import ProgramsSection from '@/components/landing/sections/ProgramsSection'
 import ProgressReportsSection from '@/components/landing/sections/ProgressReportsSection'
+import TrustSection from '@/components/landing/sections/TrustSection'
 import Header from '@/shared/components/layout/Header'
 
 /**
@@ -23,6 +24,7 @@ function Home() {
         <ProgramsSection />
         <LearningGrowsSection />
         <ProgressReportsSection />
+         <TrustSection />
         <DownloadAppSection />
 
       </main>

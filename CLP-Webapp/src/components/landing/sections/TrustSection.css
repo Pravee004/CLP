@@ -1,0 +1,77 @@
+/**
+ * TrustSection.css
+ * ------------------------------------------------------------------
+ * Component-specific styling for the trust journey.
+ *
+ * The card track is driven by one custom property, `--trust-p` (0 → 1),
+ * which TrustSection.tsx writes to the scene on scroll — the same
+ * approach the hero uses. Plus two keyframe loops Tailwind can't
+ * express: the travelling dash and the card float. Everything static
+ * stays in Tailwind classes in the TSX.
+ */
+
+.trust-scene {
+  --trust-p: 0;
+}
+
+/* Faint ruled lines, as on a pinboard. Sits behind everything and fades out
+   at both edges so it never reads as a hard grid. */
+.trust-rules {
+  background-image: repeating-linear-gradient(
+    to bottom,
+    transparent 0 47px,
+    rgb(22 50 79 / 0.05) 47px 48px
+  );
+  mask-image: linear-gradient(to bottom, transparent, black 12%, black 88%, transparent);
+}
+
+/* The track is taller than the viewport and slides up through the pinned
+   scene, so roughly two cards hold focus at any point. Only from `lg`,
+   where the scene is actually pinned; below that the cards are in normal
+   flow and must not be moved. */
+@media (min-width: 64rem) {
+  .trust-track {
+    transform: translate3d(0, calc(var(--trust-p) * -50vh), 0);
+    will-change: transform;
+  }
+}
+
+/* The dash period is 14 (2 + 12); the offset travels an exact multiple of
+   it so the loop restarts with no visible jump. */
+.trust-path {
+  stroke-dasharray: 2 12;
+  animation: trust-dash-travel 2.6s linear infinite;
+}
+
+@keyframes trust-dash-travel {
+  to {
+    stroke-dashoffset: -28;
+  }
+}
+
+/* Sits on the card's inner surface, not the article, so it composes with
+   the article's tilt instead of overwriting that transform. */
+.trust-float {
+  animation: trust-float 7.5s ease-in-out infinite;
+  will-change: transform;
+}
+
+@keyframes trust-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+/* The track's travel is how the lower cards are reached at all, so it is
+   structural and stays — the same call the hero makes for its reveal.
+   Only the decorative loops are dropped. */
+@media (prefers-reduced-motion: reduce) {
+  .trust-path,
+  .trust-float {
+    animation: none;
+  }
+}
